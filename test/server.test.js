@@ -8,11 +8,6 @@ describe("GET /", () => {
     expect(response.statusCode).toBe(200);
     expect(Array.isArray(response.body)).toBe(true);
     // Add more assertions as needed.
-    //Blah blah blah
-    //Blah blah blah
-    //Blah blah blah
-    //Blah blah blah
-    //Blah blah blah
-    //Blah blah blah
+
   });
 });
