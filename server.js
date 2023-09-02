@@ -68,8 +68,12 @@ app.get("/", (req, res) => {
 
 const port = process.env.PORT;
 
-app.listen(port, () => {
-  console.log(`Server running on port http://localhost:8080`);
+const server = app.listen(port, () => {
+  console.log(`Server running on port http://localhost:${port}`);
+});
+
+server.on('error', (error) => {
+  console.error('Error occurred:', error);
 });
 
 module.exports.cars = cars;
