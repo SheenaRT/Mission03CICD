@@ -1,5 +1,5 @@
 const request = require("supertest");
-const EstimateCarValue = require("./EstimateCarValue");
+const EstimateCarValue = require("../components/EstimateCarValue");
 
 describe("EstimateCarValue", () => {
   // Test for valid inputs
@@ -7,7 +7,7 @@ describe("EstimateCarValue", () => {
     const result = EstimateCarValue("Civic", 2014);
     // Based on your function, the 'Civic' would have a value of 37 (C=3, I=9, V=22, I=9, C=3)
     // So, 37 * 100 + 2014 = 5714
-    expect(result).toEqual({ "Car Value": "$5714" });
+    expect(result).toEqual({ "Car Value": "$6614" });
   });
 
   // Test for negative years

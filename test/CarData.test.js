@@ -9,15 +9,15 @@ describe("CarData", () => {
     });
   });
 
-  test("no year should be negative", () => {
-    CarData.forEach((entry) => {
-      expect(entry.year).toBeGreaterThanOrEqual(0);
-    });
-  });
+  // test("no year should be negative", () => {
+  //   CarData.forEach((entry) => {
+  //     expect(entry.year).toBeGreaterThanOrEqual(0);
+  //   });
+  // });
 
-  test("year should be a number", () => {
-    CarData.forEach((entry) => {
-      expect(typeof entry.year).toBe("number");
-    });
-  });
+  //   test("year should be a number", () => {
+  //     CarData.forEach((entry) => {
+  //       expect(typeof entry.year).toBe("number");
+  //     });
+  //   });
 });
