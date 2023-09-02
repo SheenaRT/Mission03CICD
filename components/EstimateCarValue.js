@@ -1,4 +1,4 @@
-export default function EstimateCarValue(make, year) {
+function EstimateCarValue(make, year) {
   // use for-loop to Calculate the number of the positions of the alphabets in the make name model
   const alphaNumValue = [...make.toUpperCase()]
     .filter((alphabets) => alphabets >= "A" && alphabets <= "Z")
@@ -17,3 +17,5 @@ export default function EstimateCarValue(make, year) {
 
   return { "Car Value": `$${carValue}` };
 }
+
+module.exports = EstimateCarValue;

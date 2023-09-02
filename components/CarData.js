@@ -1,4 +1,4 @@
-let cars = [
+let CarData = [
   {
     make: "Civic",
     year: 2014,
@@ -28,3 +28,5 @@ let cars = [
     year: "Twenty twenty",
   },
 ];
+
+module.exports = CarData;
