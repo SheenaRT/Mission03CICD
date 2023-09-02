@@ -1,6 +1,8 @@
 const request = require("supertest");
 const app = require("../server");
 
+process.env.PORT = 8080;
+
 describe("GET /", () => {
   it("should respond with an array of car values", async () => {
     const response = await request(app).get("/");
