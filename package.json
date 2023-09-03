@@ -4,7 +4,9 @@
   "description": "Redo mission",
   "main": "server.js",
   "scripts": {
-    "test": "jest --forceExit",
+
+    "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit",
+
     "start": "node server.js"
   },
   "keywords": [
