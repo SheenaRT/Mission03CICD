@@ -1,5 +1,7 @@
+
 const request = require('supertest');
 const app = require('../server');
+const { app, server } = require("../server");
 
 describe('GET /', () => {
   it('should respond with an array of car values', async () => {
@@ -10,3 +12,10 @@ describe('GET /', () => {
     // Add more assertions as needed.
   });
 });
+
+// describe("Server start-up", () => {
+//   test("should start server without errors", async () => {
+//     const response = await request(server).get("/");
+//     expect(response.status).toBe(200);
+//   });
+// });

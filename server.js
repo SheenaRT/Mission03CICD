@@ -1,12 +1,16 @@
+
 const express = require('express');
 require('dotenv').config();
+
+const CarRoutes = require("./components/CarRoutes");
 
 const app = express();
 
 app.use(express.json());
+app.use("/", CarRoutes);
 
-module.exports.EstCarValue = EstCarValue;
-module.exports = app;
+const port = process.env.PORT || 8080;
+
 
 //suggested input of car
 
@@ -64,12 +68,16 @@ function EstCarValue(make, year) {
 app.get('/', (req, res) => {
   const result = cars.map((car) => EstCarValue(car.make, car.year));
   res.send(result);
+
+const server = app.listen("test" ? 0 : port, () => {
+  console.log(`Server running on port http://localhost:${port}`);
+
 });
 
-const port = process.env.PORT;
-
-app.listen(port, () => {
-  console.log(`Server running on port http://localhost:8080`);
+server.on("error", (error) => {
+  console.error("Error occurred:", error);
 });
 
-module.exports.cars = cars;
+module.exports = { app, server, port };
+
+//Server is good
