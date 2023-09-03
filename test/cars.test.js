@@ -3,6 +3,6 @@ const app = require('../server');
 
 describe('GET /', () => {
   it('Sanity Test', () => {
-    expect(1 + 1).toBe(3);
+    expect(1 + 1).toBe(2);
   });
 });
