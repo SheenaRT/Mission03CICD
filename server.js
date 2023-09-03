@@ -1,6 +1,4 @@
 const express = require('express');
-require('dotenv').config();
-
 const CarRoutes = require('./components/CarRoutes');
 
 const app = express();
@@ -10,7 +8,19 @@ app.use('/', CarRoutes);
 
 const port = process.env.PORT || 8080;
 
-//suggested input of car
+let server; // Declare the server variable
+
+if (process.env.NODE_ENV !== 'test') {
+  // Start the server only if not in test mode
+  server = app.listen(port, () => {
+    console.log(`Server running on port http://localhost:${port}`);
+  });
+
+  server.on('error', (error) => {
+    console.error('Error occurred:', error);
+  });
+}
+// suggested input of car
 
 let cars = [
   {
@@ -67,14 +77,13 @@ app.get('/', (req, res) => {
   const result = cars.map((car) => EstCarValue(car.make, car.year));
   res.send(result);
 
-  const server = app.listen('test' ? 0 : port, () => {
-    console.log(`Server running on port http://localhost:${port}`);
-  });
+  //   const server = app.listen("test" ? 0 : port, () => {
+  //     console.log(`Server running on port http://localhost:${port}`);
+  //   });
 
-  server.on('error', (error) => {
-    console.error('Error occurred:', error);
-  });
+  //   server.on("error", (error) => {
+  //     console.error("Error occurred:", error);
+  //   });
 });
-module.exports = { app, server, port };
 
-//Server is good
+module.exports = { app, server, port };
