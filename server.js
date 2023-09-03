@@ -66,7 +66,7 @@ app.get('/', (req, res) => {
   res.send(result);
 });
 
-const port = 8080;
+const port = process.env.PORT;
 
 app.listen(port, () => {
   console.log(`Server running on port http://localhost:8080`);
