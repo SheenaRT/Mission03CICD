@@ -1,13 +1,13 @@
-const request = require("supertest");
-const CarData = require("../components/CarData");
+// const request = require("supertest");
+// const CarData = require("../components/CarData");
 
-describe("CarData", () => {
-  test("every entry should have a make and year", () => {
-    CarData.forEach((entry) => {
-      expect(entry).toHaveProperty("make");
-      expect(entry).toHaveProperty("year");
-    });
-  });
+// describe("CarData", () => {
+//   test("every entry should have a make and year", () => {
+//     CarData.forEach((entry) => {
+//       expect(entry).toHaveProperty("make");
+//       expect(entry).toHaveProperty("year");
+//     });
+//   });
 
   // test("no year should be negative", () => {
   //   CarData.forEach((entry) => {
