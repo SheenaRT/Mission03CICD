@@ -1,5 +1,5 @@
-const express = require("express");
-require("dotenv").config();
+const express = require('express');
+require('dotenv').config();
 
 const app = express();
 
@@ -12,61 +12,61 @@ module.exports = app;
 
 let cars = [
   {
-    make: "Civic",
+    make: 'Civic',
     year: 2014,
   },
   {
-    make: "SSV8Ute",
+    make: 'SSV8Ute',
     year: 2005,
   },
   {
-    make: "Demio",
+    make: 'Demio',
     year: 2007,
   },
   {
-    make: "Alphard",
+    make: 'Alphard',
     year: 2017,
   },
   {
-    make: "Land Rover Range Rover Evoque 2.0 TD4 E-Capability 4x4 HSE Dynamic",
+    make: 'Land Rover Range Rover Evoque 2.0 TD4 E-Capability 4x4 HSE Dynamic',
     year: 2007,
   },
   {
-    make: "Task-Force",
+    make: 'Task-Force',
     year: -987,
   },
   {
-    make: "C200",
-    year: "Twenty twenty",
+    make: 'C200',
+    year: 'Twenty twenty',
   },
 ];
 
 function EstCarValue(make, year) {
   // use for-loop to Calculate the number of the positions of the alphabets in the make name model
   const alphaNumValue = [...make.toUpperCase()]
-    .filter((alphabets) => alphabets >= "A" && alphabets <= "Z")
+    .filter((alphabets) => alphabets >= 'A' && alphabets <= 'Z')
     .reduce(
-      (sum, alphabets) => sum + alphabets.charCodeAt(0) - "A".charCodeAt(0) + 1,
+      (sum, alphabets) => sum + alphabets.charCodeAt(0) - 'A'.charCodeAt(0) + 1,
       0
     );
-  if (typeof year !== "number") {
-    return { error: "Wrong data type" };
+  if (typeof year !== 'number') {
+    return { error: 'Wrong data type' };
   }
   if (year < 0) {
-    return { error: "Negative year" };
+    return { error: 'Negative year' };
   }
   // Calculate the car value according to the given rules
   const carValue = alphaNumValue * 100 + year;
 
-  return { "Car Value": `$${carValue}` };
+  return { 'Car Value': `$${carValue}` };
 }
 
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
   const result = cars.map((car) => EstCarValue(car.make, car.year));
   res.send(result);
 });
 
-const port = process.env.PORT;
+const port = 8080;
 
 app.listen(port, () => {
   console.log(`Server running on port http://localhost:8080`);
