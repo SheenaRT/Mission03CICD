@@ -75,6 +75,9 @@ jobs:
         with:
           name: node-app
 
+      - name: Create tarball without node_modules
+        run: tar -czvf my_project.tar.gz --exclude=node_modules .
+
       - name: "Deploy to Azure WebApp"
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
